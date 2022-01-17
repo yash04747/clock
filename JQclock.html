@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JqCLOCK</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+   
+    <style>
+          #clock
+            {
+
+                margin: auto;
+                border : 1px solid black;
+                text-align: center; 
+                width: 200px;
+                background-color: cornsilk;
+
+            }
+            #clock1
+            {
+
+                margin: auto;
+                border : 1px solid black;
+                text-align: center; 
+                width: 200px;
+                background-color: cornsilk;
+
+            }
+            #clock2
+            {
+
+                margin: auto;
+                border : 1px solid black;
+                text-align: center; 
+                width: 200px;
+                background-color: cornsilk;
+
+            }
+            #p
+            {
+
+                margin: auto;
+                border : 1px solid black;
+                text-align: center; 
+                width: 200px;
+                background-color: cornsilk;
+
+            }
+            
+    </style>
+
+
+    <div id = "clock" ></div>
+    <div id = "clock1" ></div>
+    <div id = "clock2" ></div>
+    <p id="p"></p>
+    <script>
+    
+        function updateClock ( )
+ 	{
+ 	var currentTime = new Date ( );
+  	var currentHours = currentTime.getHours ( );
+  	var currentMinutes = currentTime.getMinutes ( );
+  	var currentSeconds = currentTime.getSeconds ( );
+      var test = new Date(Date.UTC(2010, 01, 28));
+
+
+  	currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+  	currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+
+  	var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
+
+  	currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
+
+  	currentHours = ( currentHours == 0 ) ? 12 : currentHours;
+
+
+  	var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
+  	
+  	
+   	$("#clock").html(currentTimeString);
+       
+   	$("#clock1").html(test);
+var z = "odd";
+var y= "even";
+       
+
+                 for(let i=0; i<=currentSeconds;i++)
+                 {
+                 if(currentSeconds%2==0)
+                 {
+                    $("#p").html(y);
+           
+                    }
+                 else
+
+                 {
+                    $("#p").html(z);
+                 }
+
+                
+                }   
+                let hr = currentTime.getHours();
+            var a = "good morning";
+            var c = "good Afternoom";
+            var d = "good Eveninig";
+            var e = "good Night";
+
+                if (hr >= 0 && hr < 12) 
+                {
+                
+   	                   $("#clock2").html(a);
+                }
+        
+        
+            
+        else if ( hr >= 12 && hr <= 17) {   
+
+                        $("#clock2").html(c);
+        }
+        else if (hr >= 17 && hr <= 21){
+            $("#clock2").html(d);
+
+        }
+         else {
+           
+              $("#clock2").html(e);
+        }
+    
+
+
+     }
+   	  	
+ 
+ $(document).ready(function()
+{
+   setInterval('updateClock()', 1000);
+})
+     
+    </script>
+</body>
+</html>
+
+

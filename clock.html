@@ -1,0 +1,124 @@
+<html>
+    <body onload = "updateClock(), setInterval('updateClock()', 1000)" >
+        <style>
+            
+            
+            #clock
+            {
+
+                margin: auto;
+                border : 1px solid black;
+                text-align: center; 
+                width: 200px;
+                background-color: cornsilk;
+
+            }
+            #clock1
+            {
+
+                margin: auto;
+                border : 1px solid black;
+                text-align: center; 
+                width: 200px;
+                background-color: cornsilk;
+
+            }
+            #p
+            {
+                margin: auto;
+                border : 1px solid black;
+                text-align: center; 
+                width: 200px;
+                background-color: cornsilk;
+            }
+            #clock2
+            {
+
+                margin: auto;
+                border : 1px solid black;
+                text-align: center; 
+                width: 200px;
+                background-color: cornsilk;
+
+            }
+            </style>
+
+    <div id = "clock" ></div>
+    <div id = "clock2" ></div>
+    <div id ="clock1"></div>
+    <p id = "p" ></p>
+
+    
+   
+            <script>
+                 function updateClock() 
+                 {
+   
+        let currentTime = new Date();
+    
+        let currentHour = currentTime.getHours();
+        let currentMinutes = currentTime.getMinutes();
+        let currentSeconds = currentTime.getSeconds();
+        var test = new Date(Date.UTC(2010, 01, 28));
+    
+        currentMinutes = (currentMinutes < 10 ? "0": "") + currentMinutes;
+        currentSeconds = (currentSeconds < 10 ? "0": "") + currentSeconds; 
+    
+        currentHour = (currentHour>12) ? currentHour - 12 : currentHour;
+        currentHour = (currentHour==0) ?  12 : currentHour;
+        
+        let timeOfDay = (currentHour < 12 ) ? "AM" : "PM";
+    
+        let currentTimeStr = currentHour + ":" + currentMinutes  
+                            + ":" + currentSeconds + " " + timeOfDay;
+                         
+    document.getElementById("clock").innerHTML = currentTimeStr;
+    document.getElementById("clock1").innerHTML = test;
+    
+
+
+    var paragraph = document.createElement('p');
+
+                 for(let i=0; i<= currentSeconds;i++)
+                 {
+                 if( currentSeconds%2==0)
+                 {
+                    document.getElementById("p").innerHTML = "even ";
+           
+                    }
+                 else
+
+                 {
+                    document.getElementById("p").innerHTML = "odd";
+                 }
+
+                }
+                let hr = currentTime.getHours();
+                
+        if (hr >= 0 && hr < 11) 
+        {
+            document.getElementById("clock2").innerHTML = "good MOrning ";
+        }
+        
+         
+                 else if (hr >= 12 && hr <= 17) 
+{
+            document.getElementById("clock2").innerHTML = "good Afternoon ";
+        } 
+        else if (hr >= 17 && hr <= 21){
+            document.getElementById("clock2").innerHTML = "good Evening";
+            }
+           
+           else {
+            document.getElementById("clock2").innerHTML = "good Night";
+        }
+
+    
+       
+                }
+            </script>
+        </body>
+    </html>
+
+
+    
